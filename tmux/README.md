@@ -27,7 +27,8 @@ Tmux relies on a **Prefix key**. You press and release the Prefix key, then pres
 *Think of panes as split screens within a window.*
 *   **Split vertically (left/right):** `Prefix` + `%`
 *   **Split horizontally (top/bottom):** `Prefix` + `"`
-*   **Navigate panes (Vim style):** `Prefix` + `h`, `j`, `k`, `l` *(Custom mapping)*
+*   **Navigate panes (no prefix):** `Alt` + `h`, `j`, `k`, `l` *(Custom mapping — no prefix needed)*
+*   **Navigate panes (with prefix):** `Prefix` + `h`, `j`, `k`, `l`
 *   **Navigate panes (Arrows):** `Prefix` + `Up`, `Down`, `Left`, `Right`
 *   **Zoom pane (fullscreen toggle):** `Prefix` + `z`
 *   **Close current pane:** `Prefix` + `x`
@@ -39,3 +40,24 @@ Tmux relies on a **Prefix key**. You press and release the Prefix key, then pres
 *   **Reload Config:** `Prefix` + `r`
 *   **Copy Mode:** Uses `vi` keybindings (`Prefix` + `[` to enter copy mode).
 *   **Theme:** Catppuccin with a top status bar.
+
+## 🤖 Session Launcher (`mux`)
+
+The `mux` shell function (defined in `.zshrc`) spins up a named dev session with a 60/40 nvim/AI split:
+
+```bash
+mux <session-name> [directory]
+```
+
+*   Creates a new session with nvim on the left (60%) and `gemini`/`claude` on the right (40%)
+*   Detects `gemini` first, falls back to `claude`
+*   If the session already exists, attaches to it instead (idempotent)
+*   Directory defaults to `$PWD` if not specified
+
+**Zsh aliases for manual session management:**
+
+| Alias | Command |
+|-------|---------|
+| `ta <name>` | Attach to session |
+| `tn <name>` | New named session |
+| `td <name>` | Kill session |
