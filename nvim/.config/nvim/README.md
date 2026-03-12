@@ -156,7 +156,7 @@ You have the industry standard `neotest` plugin installed for seamless test runn
 You have `lazygit.nvim` installed, which wraps the fantastic terminal UI `lazygit` directly inside Neovim, alongside `git-conflict.nvim` for resolving merge conflicts natively in your editor.
 
 ### Using LazyGit
-- **Open LazyGit:** `<Space> + l + g` (or `:LazyGit`)
+- **Open LazyGit:** `<Space> + g + g` (or `:LazyGit`)
 - This opens a full-screen floating window. Inside LazyGit:
   - `Space`: Stage / Unstage a file or line.
   - `c`: Commit (opens a prompt for your message).
@@ -168,7 +168,7 @@ You have `lazygit.nvim` installed, which wraps the fantastic terminal UI `lazygi
 
 When you hit a merge conflict (e.g., during a `git pull` or `git merge`), you have a very fast, VS Code-like inline resolution workflow combining LazyGit and Neovim:
 
-1. **Spot the Conflict in LazyGit:** Open LazyGit (`<Space> + l + g`). Conflicted files will show up under the "Files" section in red.
+1. **Spot the Conflict in LazyGit:** Open LazyGit (`<Space> + g + g`). Conflicted files will show up under the "Files" section in red.
 2. **Open the File in Neovim:** Select the conflicted file and press `e` (Edit). This will drop you out of LazyGit and open the file directly in Neovim.
 3. **Navigate & Resolve (git-conflict.nvim):** The conflicted sections will be highlighted in bright colors.
    - `]x` : Jump to the **next** conflict.
@@ -177,7 +177,7 @@ When you hit a merge conflict (e.g., during a `git pull` or `git merge`), you ha
    - `ct` : Choose **Theirs** (incoming branch).
    - `cb` : Choose **Both**.
    - `c0` : Choose **None** (clears the conflict markers so you can manually rewrite it).
-4. **Save & Finish:** Once all conflicts in the file are resolved, save it (`:w`), and jump back into LazyGit (`<Space> + l + g`).
+4. **Save & Finish:** Once all conflicts in the file are resolved, save it (`:w`), and jump back into LazyGit (`<Space> + g + g`).
 5. **Stage:** In LazyGit, press `Space` on the resolved file to stage it.
 6. **Complete the Merge:** Press `c` to commit and finalize the merge!
 

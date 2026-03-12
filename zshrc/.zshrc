@@ -125,6 +125,33 @@ alias ta='tmux attach -t'
 alias tn='tmux new -s'
 alias td='tmux kill-session -t'
 
+function mux() {
+  local session=${1:?session name required}
+  local dir=${2:-$(pwd)}
+
+  if tmux has-session -t "$session" 2>/dev/null; then
+    tmux attach -t "$session"
+    return
+  fi
+
+  local ai_cmd
+  if command -v gemini &>/dev/null; then
+    ai_cmd="gemini"
+  elif command -v claude &>/dev/null; then
+    ai_cmd="claude"
+  else
+    echo "mux: neither gemini nor claude found in PATH"
+    return 1
+  fi
+
+  tmux new-session -d -s "$session" -c "$dir"
+  tmux split-window -h -p 40 -t "$session" -c "$dir"
+  tmux send-keys -t "$session:1.1" "nvim ." Enter
+  tmux send-keys -t "$session:1.2" "$ai_cmd" Enter
+  tmux select-pane -t "$session:1.1"
+  tmux attach -t "$session"
+}
+
 
 # Load local/machine-specific configurations (not tracked in git)
 if [ -f "$HOME/.zshrc.local" ]; then
