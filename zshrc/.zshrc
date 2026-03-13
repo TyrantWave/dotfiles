@@ -125,6 +125,25 @@ alias ta='tmux attach -t'
 alias tn='tmux new -s'
 alias td='tmux kill-session -t'
 
+# Tmux dev session launcher
+mux() {
+  local session_name="${1:-dev}"
+  local session_dir="${2:-$PWD}"
+
+  if ! tmux has-session -t "$session_name" 2>/dev/null; then
+    cd "$session_dir" || return
+    tmux new-session -d -s "$session_name" -n main 'nvim'
+    
+    local ai_cmd="claude"
+    if command -v gemini &>/dev/null; then
+      ai_cmd="gemini"
+    fi
+    
+    tmux split-window -h -p 40 "$ai_cmd"
+  fi
+  tmux attach-session -t "$session_name"
+}
+
 
 # Load local/machine-specific configurations (not tracked in git)
 if [ -f "$HOME/.zshrc.local" ]; then

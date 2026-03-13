@@ -288,7 +288,26 @@ install_claude() {
 }
 
 # ─────────────────────────────────────────────
-#  6. Stow all packages
+#  6. Gemini CLI
+# ─────────────────────────────────────────────
+install_gemini() {
+  section "Gemini CLI"
+
+  if command -v gemini &>/dev/null; then
+    ok "Gemini CLI already installed ($(gemini --version 2>/dev/null || echo 'unknown version'))"
+  else
+    info "Installing Gemini CLI..."
+    if command -v npm &>/dev/null; then
+      npm install -g @google/gemini-cli
+      ok "Gemini CLI installed"
+    else
+      warn "npm not found — cannot install Gemini CLI"
+    fi
+  fi
+}
+
+# ─────────────────────────────────────────────
+#  7. Stow all packages
 # ─────────────────────────────────────────────
 stow_packages() {
   section "Stowing dotfiles"
@@ -342,6 +361,9 @@ print_summary() {
   echo -e "  ${CYAN}Claude Code${RESET}"
   echo "    Run: claude  (follow auth prompts on first launch)"
   echo ""
+  echo -e "  ${CYAN}Gemini CLI${RESET}"
+  echo "    Run: gemini  (follow auth prompts on first launch)"
+  echo ""
 }
 
 # ─────────────────────────────────────────────
@@ -361,6 +383,7 @@ main() {
   install_tmux
   install_neovim_extras
   install_claude
+  install_gemini
   stow_packages
   print_summary
 }
