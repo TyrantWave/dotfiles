@@ -22,7 +22,7 @@ cd ~/dotfiles
 ./install.sh
 ```
 
-The script handles everything: system packages, Oh My Zsh, Powerlevel10k, zsh plugins, TPM, Neovim python venv, Claude Code, and stowing all packages. Supports Debian/Ubuntu, Arch, and macOS.
+The script handles everything: system packages (including Node.js and Go), Oh My Zsh, Powerlevel10k, zsh plugins, TPM, Neovim python venv, Claude Code, Gemini CLI, and stowing all packages. Supports Debian/Ubuntu, Arch, and macOS.
 
 **After the script completes:**
 
@@ -59,7 +59,7 @@ The `claude` package symlinks `~/.claude/CLAUDE.md` and `~/.claude/agents/` glob
 Agents are available in any project without any per-project config.
 
 **Go agents:** `backend-go`, `qa-go`, `devops-go`, `security-go`, `review-go`
-**Generic:** `frontend`, `ci`
+**Python agents:** `backend-python`, `planning-python`, `qa-python`, `review-python`, `security-python`
 
 ### Gemini agents
 The `gemini` package symlinks `~/.gemini/GEMINI.md` and `~/.gemini/agents/` globally.
@@ -85,10 +85,10 @@ dotfiles/
       CLAUDE.md      →  ~/.claude/CLAUDE.md
       agents/        →  ~/.claude/agents/
   gemini/
-    GEMINI.md        →  ~/.gemini/GEMINI.md
-    settings.json    →  ~/.gemini/settings.json
-    agents/          →  ~/.gemini/agents/
-    planning/        →  ~/.gemini/planning/
+    .gemini/
+      GEMINI.md      →  ~/.gemini/GEMINI.md
+      settings.json  →  ~/.gemini/settings.json
+      agents/        →  ~/.gemini/agents/
 ```
 
 To remove symlinks for a package:

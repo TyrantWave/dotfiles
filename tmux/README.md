@@ -39,7 +39,7 @@ Tmux relies on a **Prefix key**. You press and release the Prefix key, then pres
 *   **Base Index:** Windows and Panes start at `1` instead of `0`.
 *   **Reload Config:** `Prefix` + `r`
 *   **Copy Mode:** Uses `vi` keybindings (`Prefix` + `[` to enter copy mode).
-*   **Theme:** Catppuccin with a top status bar.
+*   **Theme:** Catppuccin with a bottom status bar.
 
 ## 🤖 Session Launcher (`mux`)
 
