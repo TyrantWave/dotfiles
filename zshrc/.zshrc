@@ -113,7 +113,6 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-alias ll='ls -larthS'
 alias dev='cd ~/Development'
 alias gp="git branch | grep -v '^\*\|main$' | xargs git branch -d -f"
 alias gc="git branch --merged | grep -v '^\*\|main$' | xargs git branch -d -f"
@@ -139,7 +138,8 @@ mux() {
       ai_cmd="gemini"
     fi
     
-    tmux split-window -h -p 40 "$ai_cmd"
+    tmux split-window -h -l 40% -t "$session_name"
+    tmux send-keys -t "$session_name" "$ai_cmd" Enter
   fi
   tmux attach-session -t "$session_name"
 }
@@ -152,3 +152,10 @@ fi
 
 # Force Gemini CLI to load both global GEMINI.md and local AGENTS.md context files
 export GEMINI_CLI_SYSTEM_SETTINGS_PATH=~/.gemini/settings.json
+
+# bun completions
+[ -s "/home/dom/.bun/_bun" ] && source "/home/dom/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
