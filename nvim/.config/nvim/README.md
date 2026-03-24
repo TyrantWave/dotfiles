@@ -189,3 +189,13 @@ You have `render-markdown.nvim` installed, which completely transforms how Markd
 
 - **How it works:** It dynamically hides raw markdown syntax (like `#`, `*`, `>`) while you are not editing that line, and replaces them with clean visual elements, beautiful headings, visual checkboxes (`[ ]` to `󰄱`), and proper bullet points.
 - **Toggle View:** If you need to see the raw, underlying syntax everywhere to edit something complex, simply press `<Space> + t + m` (**T**oggle **M**arkdown) to turn the rendering off and on.
+
+## 🤖 9. AI Assistance (GitHub Copilot)
+
+You have the lightweight, pure-Lua GitHub Copilot plugin (`zbirenbaum/copilot.lua`) installed for seamless VS Code-like inline suggestions.
+
+- **Authentication:** Run `:Copilot auth` to log in for the first time.
+- `<Tab>`: **Accept** the current inline suggestion.
+- `<Alt-]>` (or `<Option-]>`): Cycle to the **next** suggestion.
+- `<Alt-[>` (or `<Option-[>`): Cycle to the **previous** suggestion.
+- `<Ctrl-]>`: **Dismiss** the suggestion.
