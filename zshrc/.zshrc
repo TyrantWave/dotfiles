@@ -138,7 +138,7 @@ mux() {
       ai_cmd="gemini"
     fi
     
-    tmux split-window -h -l 40% -t "$session_name"
+    tmux split-window -h -l 25% -t "$session_name"
     tmux send-keys -t "$session_name" "$ai_cmd" Enter
   fi
   tmux attach-session -t "$session_name"

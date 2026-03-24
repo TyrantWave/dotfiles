@@ -60,10 +60,6 @@ Act as a senior software engineer collaborating with a peer, not an assistant se
 - Wants to be consulted on implementation decisions
 - Prefers minimalism and conceptually simple ideas over completeness
 
-## gstack
-- Use `/browse` from gstack for **all web browsing** — never use `mcp__claude-in-chrome__*` tools directly
-- Available skills: `/plan-ceo-review`, `/plan-eng-review`, `/review`, `/ship`, `/browse`, `/qa`, `/setup-browser-cookies`, `/retro`
-
 ## Agents
 Specialised agents are available in `~/.claude/agents/`. **Always invoke the relevant agent for language-specific tasks.**
 
