@@ -77,6 +77,13 @@ Specialised agents are available in `~/.claude/agents/`. **Always invoke the rel
 - **review-python** — code review, type hints, PEP-8
 - **planning-python** — architecture mapping, requirements analysis
 
+**Angular**
+- **frontend-angular** — Angular v21+, standalone, signals, RxJS, Tailwind, production architecture
+- **planning-angular** — feature planning, component tree design, state strategy, routing
+- **qa-angular** — vitest, Angular Testing Library, signal testing, HttpTestingController
+- **review-angular** — idiomatic Angular v21+ code review checklist
+- **security-angular** — XSS/CSP/auth/OWASP frontend controls for Angular SPAs
+
 **Language-agnostic**
 - **frontend** — UI, accessibility, browser performance
 - **ci** — CI/CD pipelines and build automation
