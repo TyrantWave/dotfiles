@@ -85,6 +85,7 @@ install_system_packages() {
   install_pkg zsh
   install_pkg tmux
   install_pkg neovim nvim
+  install_pkg lazygit
   install_pkg curl
   install_pkg unzip
 
@@ -314,7 +315,7 @@ stow_packages() {
 
   cd "$DOTFILES_DIR"
 
-  for pkg in nvim tmux zshrc claude gemini; do
+  for pkg in nvim tmux zshrc claude gemini lazygit; do
     if [[ ! -d "$pkg" ]]; then
       warn "Package '$pkg' not found in $DOTFILES_DIR — skipping"
       continue
