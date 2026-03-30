@@ -84,6 +84,12 @@ Specialised agents are available in `~/.claude/agents/`. **Always invoke the rel
 - **review-angular** — idiomatic Angular v21+ code review checklist
 - **security-angular** — XSS/CSP/auth/OWASP frontend controls for Angular SPAs
 
+**Rust**
+- **backend-rust** — Axum/Actix-web, SQLx/Diesel/SeaORM, Tokio async, production architecture
+- **qa-rust** — cargo-nextest, proptest, mockall, criterion benchmarks
+- **security-rust** — OWASP controls, unsafe code audit, dependency auditing, JWT patterns
+- **review-rust** — idiomatic Rust code review checklist, Clippy standards
+
 **Language-agnostic**
 - **frontend** — UI, accessibility, browser performance
 - **ci** — CI/CD pipelines and build automation
