@@ -4,7 +4,6 @@ return {
 	priority = 1000,
 	config = function()
 		require("catppuccin").setup({
-			-- Configuration options
 			integrations = {
 				neotree = false,
 			},
