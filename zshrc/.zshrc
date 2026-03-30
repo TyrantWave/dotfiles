@@ -79,6 +79,10 @@ ZSH_THEME='powerlevel10k/powerlevel10k'
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 
+# Catppuccin macchiato syntax highlighting (must load before oh-my-zsh activates zsh-syntax-highlighting)
+[[ -f ~/.zsh/catppuccin_macchiato-zsh-syntax-highlighting.zsh ]] && \
+  source ~/.zsh/catppuccin_macchiato-zsh-syntax-highlighting.zsh
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
