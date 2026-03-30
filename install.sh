@@ -85,8 +85,10 @@ install_system_packages() {
   install_pkg zsh
   install_pkg tmux
   install_pkg neovim nvim
+  install_pkg lazygit
   install_pkg curl
   install_pkg unzip
+  install_pkg fontconfig fc-cache
 
   # Telescope search backends
   case "$OS" in
@@ -273,7 +275,60 @@ install_neovim_extras() {
 }
 
 # ─────────────────────────────────────────────
-#  5. Claude Code
+#  5. Fonts
+# ─────────────────────────────────────────────
+install_fonts() {
+  section "Fonts"
+
+  if fc-list | grep -qi "JetBrainsMono Nerd Font"; then
+    ok "JetBrainsMono Nerd Font already installed"
+    return
+  fi
+
+  case "$OS" in
+  macos)
+    brew install --cask font-jetbrains-mono-nerd-font
+    ;;
+  arch)
+    sudo pacman -S --noconfirm ttf-jetbrains-mono-nerd
+    ;;
+  debian)
+    info "Installing JetBrainsMono Nerd Font..."
+    local font_dir="$HOME/.local/share/fonts/JetBrainsMono"
+    mkdir -p "$font_dir"
+    curl -fsSL "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip" \
+      -o /tmp/JetBrainsMono.zip
+    unzip -o -q /tmp/JetBrainsMono.zip -d "$font_dir"
+    rm /tmp/JetBrainsMono.zip
+    fc-cache -f "$font_dir"
+    ;;
+  esac
+
+  ok "JetBrainsMono Nerd Font installed"
+}
+
+# ─────────────────────────────────────────────
+#  6. Catppuccin zsh-syntax-highlighting
+# ─────────────────────────────────────────────
+install_zsh_catppuccin() {
+  section "Catppuccin zsh-syntax-highlighting"
+
+  local theme_file="$HOME/.zsh/catppuccin_macchiato-zsh-syntax-highlighting.zsh"
+  if [[ -f "$theme_file" ]]; then
+    ok "Catppuccin zsh theme already installed"
+    return
+  fi
+
+  info "Installing Catppuccin macchiato zsh-syntax-highlighting..."
+  mkdir -p "$HOME/.zsh"
+  curl -fsSL \
+    "https://raw.githubusercontent.com/catppuccin/zsh-syntax-highlighting/main/themes/catppuccin_macchiato-zsh-syntax-highlighting.zsh" \
+    -o "$theme_file"
+  ok "Catppuccin zsh theme installed"
+}
+
+# ─────────────────────────────────────────────
+#  7. Claude Code
 # ─────────────────────────────────────────────
 install_claude() {
   section "Claude Code"
@@ -288,7 +343,7 @@ install_claude() {
 }
 
 # ─────────────────────────────────────────────
-#  6. Gemini CLI
+#  8. Gemini CLI
 # ─────────────────────────────────────────────
 install_gemini() {
   section "Gemini CLI"
@@ -307,14 +362,14 @@ install_gemini() {
 }
 
 # ─────────────────────────────────────────────
-#  7. Stow all packages
+#  9. Stow all packages
 # ─────────────────────────────────────────────
 stow_packages() {
   section "Stowing dotfiles"
 
   cd "$DOTFILES_DIR"
 
-  for pkg in nvim tmux zshrc claude gemini; do
+  for pkg in nvim tmux zshrc claude gemini lazygit ghostty; do
     if [[ ! -d "$pkg" ]]; then
       warn "Package '$pkg' not found in $DOTFILES_DIR — skipping"
       continue
@@ -379,7 +434,9 @@ main() {
   info "Detected OS: $OS"
 
   install_system_packages
+  install_fonts
   install_zsh
+  install_zsh_catppuccin
   install_tmux
   install_neovim_extras
   install_claude
