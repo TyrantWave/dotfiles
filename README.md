@@ -6,9 +6,11 @@ Personal configuration files managed with [GNU Stow](https://www.gnu.org/softwar
 
 | Package | Stow target | What it configures |
 |---------|-------------|-------------------|
-| `nvim`  | `~/.config/nvim` | Neovim with lazy.nvim, LSP, Treesitter, Telescope, Catppuccin |
-| `tmux`  | `~/.tmux.conf` | tmux with TPM, Catppuccin theme, vi keys, Ctrl-a prefix |
-| `zshrc` | `~/.zshrc` | Zsh with Oh My Zsh, Powerlevel10k, syntax highlighting, autosuggestions |
+| `nvim`  | `~/.config/nvim` | Neovim with lazy.nvim, LSP, Treesitter, Telescope, Catppuccin Macchiato |
+| `tmux`  | `~/.tmux.conf` | tmux with TPM, Catppuccin Macchiato theme, vi keys, Ctrl-a prefix |
+| `zshrc` | `~/.zshrc` | Zsh with Oh My Zsh, Powerlevel10k, Catppuccin Macchiato syntax highlighting, autosuggestions |
+| `ghostty` | `~/.config/ghostty/` | Ghostty terminal — Catppuccin Macchiato theme, JetBrainsMono Nerd Font 12pt |
+| `lazygit` | `~/.config/lazygit/` | lazygit with Catppuccin Macchiato theme |
 | `claude` | `~/.claude/` | Global Claude Code config — CLAUDE.md and agent definitions |
 | `gemini` | `~/.gemini/` | Global Gemini CLI config — GEMINI.md, settings and agent definitions |
 
@@ -22,7 +24,7 @@ cd ~/dotfiles
 ./install.sh
 ```
 
-The script handles everything: system packages (including Node.js and Go), Oh My Zsh, Powerlevel10k, zsh plugins, TPM, Neovim python venv, Claude Code, Gemini CLI, and stowing all packages. Supports Debian/Ubuntu, Arch, and macOS.
+The script handles everything: system packages (including Node.js and Go), JetBrainsMono Nerd Font, Oh My Zsh, Powerlevel10k, Catppuccin zsh syntax highlighting, TPM, Neovim python venv, Claude Code, Gemini CLI, and stowing all packages. Supports Debian/Ubuntu, Arch, and macOS.
 
 **After the script completes:**
 
@@ -34,8 +36,6 @@ The script handles everything: system packages (including Node.js and Go), Oh My
 | Install LSP servers | `:MasonInstall <server>` inside Neovim |
 | Authenticate Claude | `claude` (follow prompts on first launch) |
 | Authenticate Gemini | `gemini` (follow prompts on first launch) |
-
-> **Nerd Font required** for Neovim and Powerlevel10k icons. Install one from [nerdfonts.com](https://www.nerdfonts.com) and set it in your terminal. Recommended: JetBrainsMono Nerd Font or MesloLGS NF.
 
 ---
 
@@ -50,6 +50,8 @@ cd ~/dotfiles
 stow nvim
 stow tmux
 stow zshrc
+stow ghostty
+stow lazygit
 stow claude
 stow gemini
 ```
@@ -84,6 +86,12 @@ dotfiles/
     .claude/
       CLAUDE.md      →  ~/.claude/CLAUDE.md
       agents/        →  ~/.claude/agents/
+  ghostty/
+    .config/
+      ghostty/       →  ~/.config/ghostty/
+  lazygit/
+    .config/
+      lazygit/       →  ~/.config/lazygit/
   gemini/
     .gemini/
       GEMINI.md      →  ~/.gemini/GEMINI.md
