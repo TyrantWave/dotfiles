@@ -9,6 +9,6 @@ return {
 				neotree = false,
 			},
 		})
-		vim.cmd.colorscheme("catppuccin")
+		vim.cmd.colorscheme("catppuccin-mocha")
 	end,
 }
