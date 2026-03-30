@@ -8,10 +8,12 @@ return {
 
 		vim.g.rainbow_delimiters = {
 			strategy = {
-				[""] = rainbow_delimiters.strategy["global"],
+				[""] = function(bufnr)
+					local ok, parser = pcall(vim.treesitter.get_parser, bufnr)
+					if not ok or not parser then return nil end
+					return rainbow_delimiters.strategy["global"]
+				end,
 				vim = rainbow_delimiters.strategy["local"],
-				noice = function() end,
-				notify = function() end,
 			},
 			query = {
 				[""] = "rainbow-delimiters",
