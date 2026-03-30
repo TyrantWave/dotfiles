@@ -23,7 +23,7 @@ return {
 		formatters_by_ft = {
 			lua = { "stylua" },
 			python = { "ruff_organize_imports", "ruff_format" },
-			javascript = { { "prettierd", "prettier" } },
+			javascript = { "prettierd", "prettier", stop_after_first = true },
 			go = { "gofmt", "goimports" },
 		},
 	},

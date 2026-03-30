@@ -11,9 +11,9 @@ return {
 			-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
 			{ "j-hui/fidget.nvim", opts = {} },
 
-			-- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
+			-- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
 			-- used for completion, annotations and signatures of Neovim apis
-			{ "folke/neodev.nvim", opts = {} },
+			{ "folke/lazydev.nvim", opts = {} },
 		},
 		config = function()
 			-- Brief aside: **What is LSP?**
@@ -244,6 +244,7 @@ return {
 					"golangci-lint",
 					"goimports",
 					"markdownlint",
+					"tree-sitter-cli",
 				},
 			})
 			require("mason-lspconfig").setup({

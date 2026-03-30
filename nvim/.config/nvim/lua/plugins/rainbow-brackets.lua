@@ -10,6 +10,8 @@ return {
 			strategy = {
 				[""] = rainbow_delimiters.strategy["global"],
 				vim = rainbow_delimiters.strategy["local"],
+				noice = function() end,
+				notify = function() end,
 			},
 			query = {
 				[""] = "rainbow-delimiters",
