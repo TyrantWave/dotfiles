@@ -11,8 +11,8 @@ Welcome back to your Neovim setup! This configuration is built on `lazy.nvim` as
 
 ## 📁 1. File & Project Navigation
 
-### The Dashboard (Alpha)
-When you open Neovim by typing just `nvim` in your terminal (without a `.`), you will be greeted by the Alpha dashboard.
+### The Dashboard (Snacks)
+When you open Neovim by typing just `nvim` in your terminal (without a `.`), you will be greeted by the Snacks dashboard.
 - This displays your **most recently opened files** across the project and system.
 - You can simply type the number (`0`, `1`, `2`, etc.) next to a file to instantly open it, bypassing the file tree completely.
 
@@ -25,7 +25,7 @@ You are using Neo-tree to browse your file system (opens on the **right**).
 In Neovim, the "tabs" at the top of your screen are actually open files called "Buffers".
 - `Shift + l` (or uppercase `L`): Go to the **next** tab (right).
 - `Shift + h` (or uppercase `H`): Go to the **previous** tab (left).
-- `<Space> + x` (or `:bd`): **Close** the current tab/buffer.
+- `<Space> + b + d`: **Close** the current buffer safely without breaking the window layout.
 
 ### 🪄 Auto-Save
 You no longer need to spam `:w`! This configuration features PyCharm-like automatic saving.
@@ -131,7 +131,7 @@ If you start working in a new language (e.g., Node/TS), follow these steps to ad
 
 ---
 
-## 🧪 6. Testing (Neotest)
+## 🧪 7. Testing (Neotest)
 
 You have the industry standard `neotest` plugin installed for seamless test running and output visualization. It shares the same Extensible Environment Runner as the debugger, so `.env` files are automatically loaded.
 
@@ -151,12 +151,22 @@ You have the industry standard `neotest` plugin installed for seamless test runn
 
 ---
 
-## 🌿 7. Git Integration (LazyGit) & Conflict Resolution
+## 💻 7. Terminal
 
-You have `lazygit.nvim` installed, which wraps the fantastic terminal UI `lazygit` directly inside Neovim, alongside `git-conflict.nvim` for resolving merge conflicts natively in your editor.
+You have a floating terminal powered by Snacks.
+
+- `<Space> + ;`: **Toggle** the terminal open/closed.
+- `Esc Esc`: Close the terminal from within it.
+
+---
+
+## 🌿 8. Git Integration (LazyGit) & Conflict Resolution
+
+You have LazyGit integrated via Snacks, alongside `git-conflict.nvim` for resolving merge conflicts natively in your editor.
 
 ### Using LazyGit
-- **Open LazyGit:** `<Space> + g + g` (or `:LazyGit`)
+- **Open LazyGit:** `<Space> + g + g`
+- **Open current file in GitHub:** `<Space> + g + b`
 - This opens a full-screen floating window. Inside LazyGit:
   - `Space`: Stage / Unstage a file or line.
   - `c`: Commit (opens a prompt for your message).
@@ -183,14 +193,14 @@ When you hit a merge conflict (e.g., during a `git pull` or `git merge`), you ha
 
 ---
 
-## 📝 8. Markdown Rendering
+## 📝 9. Markdown Rendering
 
 You have `render-markdown.nvim` installed, which completely transforms how Markdown files look *inside* Neovim without needing an external browser.
 
 - **How it works:** It dynamically hides raw markdown syntax (like `#`, `*`, `>`) while you are not editing that line, and replaces them with clean visual elements, beautiful headings, visual checkboxes (`[ ]` to `󰄱`), and proper bullet points.
 - **Toggle View:** If you need to see the raw, underlying syntax everywhere to edit something complex, simply press `<Space> + t + m` (**T**oggle **M**arkdown) to turn the rendering off and on.
 
-## 🤖 9. AI Assistance (GitHub Copilot)
+## 🤖 10. AI Assistance (GitHub Copilot)
 
 You have the lightweight, pure-Lua GitHub Copilot plugin (`zbirenbaum/copilot.lua`) installed for seamless VS Code-like inline suggestions.
 
