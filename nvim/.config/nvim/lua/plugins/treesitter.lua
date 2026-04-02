@@ -26,9 +26,11 @@ return {
 						pcall(vim.treesitter.start)
 					end
 
-					-- Enable treesitter-based indentation
+					-- Enable treesitter-based indentation and folding
 					-- Note: Some languages might still need the old way, but this is the new standard
 					vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+					vim.wo.foldmethod = "expr"
+					vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 				end,
 			})
 		end,
